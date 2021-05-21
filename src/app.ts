@@ -16,11 +16,11 @@ export class App {
         title: 'Home'
       },
       {
-        route: 'binary-sort',
-        name: 'binary-sort',
-        moduleId: PLATFORM.moduleName('./sorting/binary-sort'),
+        route: 'insertion-sort',
+        name: 'insertion-sort',
+        moduleId: PLATFORM.moduleName('./sorting/insertion-sort'),
         nav: true,
-        title: 'binary-sort'
+        title: 'insertion-sort'
       },
       {
         route: 'quick-sort',
