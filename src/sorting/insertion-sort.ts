@@ -4,14 +4,14 @@ import {Elements} from "./elements";
 export class InsertionSort {
   private heading = "insertion-sort"
   private elements: Elements
+  private values = new Array<number>(720)
 
   attached() {
     const sketch = s => {
-      let values = new Array<number>(740)
       s.setup = () => {
-        const canvas = s.createCanvas(740, 500)
+        const canvas = s.createCanvas(720, 500)
         canvas.parent("sketch-holder")
-        s.background("grey")
+        s.background(200)
 
         // for (let i = 1; i < 4; i++) {
         //   const p = s.width / 4;
@@ -19,20 +19,31 @@ export class InsertionSort {
         //   const size = i % 2 !== 0 ? 24 : 32;
         //   this.elements.push(new Elements(s, circlePos, size));
         // }
-        for(let i = 0; i < values.length; i++){
-          values[i] = Math.floor(Math.random() * 500)
+        for(let i = 0; i < s.width; i++){
+          this.values[i] = Math.floor(Math.random() * s.height)
         }
-        this.elements = new Elements(s, values)
+        this.elements = new Elements(s, this.values)
       }
 
       s.draw = () => {
-        for ( let i = 0; i < values.length; i++) {
-          this.elements.draw(i)
-        }
+       this.elements.draw()
       }
     }
-    console.log(sketch)
       new P5(sketch)
   }
+
+  insertionSort(a: number[]): number[] {
+    for(let i = 1; i <= a.length; i++) {
+      const key = a[i]
+      let j = i
+      while ((j > 0) && (a[j - 1] > key)) {
+        a[j] = a[j - 1]
+        j = j - 1
+      }
+      a[j] = key
+    }
+    return a
+  }
+
 }
 
