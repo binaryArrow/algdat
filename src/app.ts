@@ -8,17 +8,24 @@ export class App {
   private svgWidth: number
   private svgHeight: number
   barWidth = 50
-
+  maxValue = 600
+  howManyBars = 10
   constructor(){
-    const maxValue = 600
-    const howManyBars = 10
-    for(let i=1; i<=howManyBars; i++){
-      const value: number = Math.floor(Math.random() * maxValue + 1)
+    for(let i=1; i<=this.howManyBars; i++){
+      const value: number = Math.floor(Math.random() * this.maxValue + 1)
       const bar = new Bars(value, (i - 1)*this.barWidth, this.barWidth)
       this.bars.push(bar)
     }
-    this.svgHeight = maxValue + 1
-    this.svgWidth = this.barWidth * howManyBars + this.barWidth
+    this.svgHeight = this.maxValue + 1
+    this.svgWidth = this.barWidth * this.howManyBars + this.barWidth
   }
+
+  createNewBars(): void {
+    this.bars.forEach(it => {
+      it.value = Math.floor(Math.random() * this.maxValue + 1)
+    })
+  }
+
+  // TODO: center the bar field.implement insertion-sort
 
 }

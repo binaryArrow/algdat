@@ -3,6 +3,7 @@
   <require from="@fortawesome/fontawesome-free/css/all.min.css"></require>
   <require from="./styles/styles.scss"></require>
   <svg width="${svgWidth}" height="${svgHeight}">
-    <rect repeat.for="bar of bars" x="${bar.position}" y="5" width="${bar.width}" height="${bar.value}"/>
+    <rect repeat.for="bar of bars" x.bind="bar.position" y="5" width.bind="bar.width" height.bind="bar.value"/>
   </svg>
+  <button click.delegate="createNewBars()">new Values</button>
 </template>
