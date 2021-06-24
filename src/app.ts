@@ -10,6 +10,7 @@ export class App {
   barWidth = 50
   maxValue = 600
   howManyBars = 10
+
   constructor(){
     for(let i=1; i<=this.howManyBars; i++){
       const value: number = Math.floor(Math.random() * this.maxValue + 1)
@@ -24,6 +25,20 @@ export class App {
     this.bars.forEach(it => {
       it.value = Math.floor(Math.random() * this.maxValue + 1)
     })
+  }
+
+  // TODO: optimize
+  insertionSort() {
+    for(let i = 0; i < this.bars.length; i++) {
+      for(let j = 0; j < this.bars.length - 1; j++) {
+
+        if(this.bars[j].value > this.bars[j + 1].value) {
+          const swap = this.bars[j].value;
+          this.bars[j].value = this.bars[j + 1].value;
+          this.bars[j + 1].value = swap;
+        }
+      }
+    }
   }
 
   // TODO: center the bar field.implement insertion-sort
