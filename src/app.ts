@@ -28,7 +28,7 @@ export class App {
   }
 
   // TODO: optimize
-  insertionSort() {
+  bubbleSort(): void {
     for(let i = 0; i < this.bars.length; i++) {
       for(let j = 0; j < this.bars.length - 1; j++) {
 
