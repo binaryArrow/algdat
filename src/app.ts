@@ -10,11 +10,12 @@ export class App {
   barWidth = 50
   maxValue = 600
   howManyBars = 10
-
+  unsorted = 'fill: red'
+  active = 'fill: green'
   constructor(){
     for(let i=1; i<=this.howManyBars; i++){
       const value: number = Math.floor(Math.random() * this.maxValue + 1)
-      const bar = new Bars(value, (i - 1)*this.barWidth, this.barWidth)
+      const bar = new Bars(value, (i - 1)*this.barWidth, this.barWidth, this.unsorted )
       this.bars.push(bar)
     }
     this.svgHeight = this.maxValue + 1
@@ -24,20 +25,26 @@ export class App {
   createNewBars(): void {
     this.bars.forEach(it => {
       it.value = Math.floor(Math.random() * this.maxValue + 1)
+      it.style = 'fill: red'
     })
   }
 
   // TODO: optimize
-  bubbleSort(): void {
+  async bubbleSort() {
     for(let i = 0; i < this.bars.length; i++) {
       for(let j = 0; j < this.bars.length - 1; j++) {
-
         if(this.bars[j].value > this.bars[j + 1].value) {
           const swap = this.bars[j].value;
           this.bars[j].value = this.bars[j + 1].value;
           this.bars[j + 1].value = swap;
+          await new Promise(resolve => {
+            setTimeout(() => {
+              resolve('resolved')
+            }, 500)
+          })
         }
       }
+      this.bars[this.bars.length - 1 - i].style = 'fill: cadetblue'
     }
   }
 
