@@ -10,8 +10,8 @@ export class App {
   barWidth = 50
   maxValue = 600
   howManyBars = 10
-  unsorted = 'fill: red'
-  active = 'fill: green'
+  unsorted = 'fill: rgb(166, 67, 67)'
+  sorted = 'fill: cadetblue'
   constructor(){
     for(let i=1; i<=this.howManyBars; i++){
       const value: number = Math.floor(Math.random() * this.maxValue + 1)
@@ -25,11 +25,10 @@ export class App {
   createNewBars(): void {
     this.bars.forEach(it => {
       it.value = Math.floor(Math.random() * this.maxValue + 1)
-      it.style = 'fill: red'
+      it.style = this.unsorted
     })
   }
 
-  // TODO: optimize
   async bubbleSort(): Promise<void> {
     for(let i = 0; i < this.bars.length; i++) {
       for(let j = 0; j < this.bars.length - 1; j++) {
@@ -44,7 +43,7 @@ export class App {
           })
         }
       }
-      this.bars[this.bars.length - 1 - i].style = 'fill: cadetblue'
+      this.bars[this.bars.length - 1 - i].style = this.sorted
     }
   }
 

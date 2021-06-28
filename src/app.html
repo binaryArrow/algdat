@@ -3,7 +3,7 @@
   <require from="@fortawesome/fontawesome-free/css/all.min.css"></require>
   <require from="./styles/styles.scss"></require>
   <svg width="${svgWidth}" height="${svgHeight}">
-    <rect repeat.for="bar of bars" x.bind="bar.position" y="5" width.bind="bar.width" height.bind="bar.value" style.bind="bar.style"/>
+    <rect repeat.for="bar of bars" x.bind="bar.position" y="5" width.bind="bar.width" height.bind="bar.value" style.bind="bar.style" rx="5"/>
   </svg>
   <button click.delegate="createNewBars()">new Values</button>
   <button click.delegate="bubbleSort()">Bubble-sort</button>
