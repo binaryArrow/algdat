@@ -12,6 +12,7 @@ export class App {
   howManyBars = 10
   unsorted = 'fill: rgb(166, 67, 67)'
   sorted = 'fill: cadetblue'
+  functionIsRunning = false
   constructor(){
     // creating bars with random heights
     for(let i=1; i<=this.howManyBars; i++){
@@ -31,6 +32,7 @@ export class App {
   }
 
   async bubbleSort(): Promise<void> {
+    this.functionIsRunning = true // TODO add a cancelation of the function and remove this property
     for(let i = 0; i < this.bars.length; i++) {
       for(let j = 0; j < this.bars.length - 1; j++) {
         if(this.bars[j].value > this.bars[j + 1].value) {
@@ -46,6 +48,7 @@ export class App {
       }
       this.bars[this.bars.length - 1 - i].style = this.sorted
     }
+    this.functionIsRunning = false
   }
 
   // TODO: center the bar field.implement insertion-sort

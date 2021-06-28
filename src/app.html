@@ -8,7 +8,7 @@
     </svg>
   </div>
   <div class="button-container">
-    <button type="button" class="btn btn-new-values" click.delegate="createNewBars()">new Values</button>
-    <button type="button" class="btn btn-bubble-sort" click.delegate="bubbleSort()">Bubble-sort</button>
+    <button type="button" class="btn btn-new-values" click.delegate="createNewBars()" disabled.bind="functionIsRunning">new Values</button>
+    <button type="button" class="btn btn-bubble-sort" click.delegate="bubbleSort()" disabled.bind="functionIsRunning">Bubble-sort</button>
   </div>
 </template>
