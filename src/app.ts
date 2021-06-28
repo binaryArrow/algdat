@@ -1,6 +1,3 @@
-import {PLATFORM} from 'aurelia-pal';
-import {Router, RouterConfiguration} from 'aurelia-router';
-import {bootstrap} from "aurelia-bootstrapper";
 import {Bars} from "./bars";
 
 export class App {
