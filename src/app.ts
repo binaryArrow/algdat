@@ -13,13 +13,14 @@ export class App {
   unsorted = 'fill: rgb(166, 67, 67)'
   sorted = 'fill: cadetblue'
   constructor(){
+    // creating bars with random heights
     for(let i=1; i<=this.howManyBars; i++){
       const value: number = Math.floor(Math.random() * this.maxValue + 1)
-      const bar = new Bars(value, (i - 1)*this.barWidth, this.barWidth, this.unsorted )
+      const bar = new Bars(value, (i - 1)*this.barWidth+1, this.barWidth, this.unsorted )
       this.bars.push(bar)
     }
-    this.svgHeight = this.maxValue + 1
-    this.svgWidth = this.barWidth * this.howManyBars + this.barWidth
+    this.svgHeight = this.maxValue + 10
+    this.svgWidth = this.barWidth * this.howManyBars + 2
   }
 
   createNewBars(): void {

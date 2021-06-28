@@ -11,11 +11,42 @@ p {
 svg{
   position: relative;
   margin: 0 auto;
-  text-align: center;
 }
 
 svg rect{
   stroke: black;
-  text-align: center;
-
 }
+.svg-container{
+  text-align: center;
+}
+
+.button-container{
+  text-align: center;
+}
+// button styles
+.btn{
+  display: inline;
+  height: 40px;
+  color: #fff;
+  border: 1px;
+  border-radius: 5px;
+}
+// button for new values
+.btn-new-values{
+  background-color: rgb(166, 67, 67);
+}
+.btn-new-values:hover, .btn-new-values:active, .btn-new-values:visited, .btn-new-values:focus{
+  background-color: rgb(150, 40, 40);
+  border-color: rgb(150, 40, 40);
+  color: white;
+}
+// button for bubble-sort
+.btn-bubble-sort {
+  background-color: cadetblue;
+}
+.btn-bubble-sort:hover, .btn-bubble-sort:active, .btn-bubble-sort:visited, .btn-bubble-sort:focus{
+  background-color: rgb(79, 141, 141);
+  border-color: rgb(79, 141, 141);
+  color: white;
+}
+
