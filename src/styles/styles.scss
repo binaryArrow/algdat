@@ -27,7 +27,7 @@ svg rect{
 .btn{
   display: inline;
   height: 40px;
-  color: #fff;
+  color: white;
   border: 1px;
   border-radius: 5px;
 }
@@ -48,5 +48,41 @@ svg rect{
   background-color: rgb(79, 141, 141);
   border-color: rgb(79, 141, 141);
   color: white;
+}
+
+.btn-reset{
+  background-color: silver;
+  color: black;
+}
+.btn-reset:hover, .btn-reset:active, .btn-reset:visited, .btn-reset:focus{
+  background-color: lightgrey;
+  border-color: black;
+}
+
+.slider-container{
+  text-align: center;
+  margin-top: 2rem;
+
+}
+.slider{
+  -webkit-appearance: none;
+  appearance: none;
+  width: 120px;
+  height: 20px;
+  background: #d3d3d3;
+  opacity: 0.7;
+  transition: opacity .2s;
+}
+
+.slider:hover{
+  opacity: 1;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 18px;
+  background-color: cadetblue;
 }
 

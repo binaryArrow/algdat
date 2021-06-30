@@ -1,15 +1,16 @@
 import {Bars} from "./bars";
 
 export class App {
-  private bars: Bars[] = []
-  private svgWidth: number
-  private svgHeight: number
+  bars: Bars[] = []
+  svgWidth: number
+  svgHeight: number
   barWidth = 50
   maxValue = 600
   howManyBars = 10
   unsorted = 'fill: rgb(166, 67, 67)'
   sorted = 'fill: cadetblue'
   functionIsRunning = false
+  speed: number
   constructor(){
     // creating bars with random heights
     for(let i=1; i<=this.howManyBars; i++){
@@ -19,6 +20,7 @@ export class App {
     }
     this.svgHeight = this.maxValue + 10
     this.svgWidth = this.barWidth * this.howManyBars + 2
+    this.speed = 90
   }
 
   createNewBars(): void {
@@ -29,7 +31,7 @@ export class App {
   }
 
   async bubbleSort(): Promise<void> {
-    this.functionIsRunning = true // TODO add a cancelation of the function and remove this property
+    this.functionIsRunning = true
     for(let i = 0; i < this.bars.length; i++) {
       for(let j = 0; j < this.bars.length - 1; j++) {
         if(this.bars[j].value > this.bars[j + 1].value) {
@@ -39,13 +41,17 @@ export class App {
           await new Promise(resolve => {
             setTimeout(() => {
               resolve('resolved')
-            }, 90)
+            }, this.speed)
           })
         }
       }
       this.bars[this.bars.length - 1 - i].style = this.sorted
     }
     this.functionIsRunning = false
+  }
+
+  reset(){
+    this.speed = 90
   }
 
   // TODO: center the bar field.implement insertion-sort
