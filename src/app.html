@@ -3,17 +3,21 @@
   <require from="@fortawesome/fontawesome-free/css/all.min.css"></require>
   <require from="./styles/styles.scss"></require>
   <div class="svg-container">
-    <svg width="${svgWidth}" height="${svgHeight}">
+    <svg width="502" height="${svgHeight}">
       <rect repeat.for="bar of bars" x.bind="bar.position" y="5" width.bind="bar.width" height.bind="bar.value" style.bind="bar.style" rx="5"/>
     </svg>
   </div>
   <div class="button-container">
-    <button type="button" class="btn btn-new-values" click.delegate="createNewBars()" disabled.bind="functionIsRunning">new Values</button>
+    <button type="button" class="btn btn-new-values" click.delegate="createBars()" disabled.bind="functionIsRunning">new Values</button>
     <button type="button" class="btn btn-bubble-sort" click.delegate="bubbleSort()" disabled.bind="functionIsRunning">Bubble-sort</button>
   </div>
   <div class="slider-container">
-    <label>Speed: ${speed}ms</label>
-    <input class="slider" type="range" min="1" max="200" value.bind="speed">
+    <label class="speed-label">Speed: ${speed}ms</label>
+    <input class="speed-slider" type="range" min="1" max="200" value.bind="speed">
     <button click.delegate="reset()" class="btn btn-reset">RESET</button>
+    <div class="space"></div>
+    <input class="bar-slider" type="range" min="3" max="100" value.bind="howManyBars" >
+
   </div>
+
 </template>

@@ -1,33 +1,37 @@
 import {Bars} from "./bars";
+import { observable } from 'aurelia-framework';
+import {bindable, bindingMode} from 'aurelia-framework';
 
 export class App {
   bars: Bars[] = []
   svgWidth: number
   svgHeight: number
-  barWidth = 50
+  barWidth // barwidth is relational to howManyBars
   maxValue = 600
-  howManyBars = 10
+  @observable howManyBars = 10
   unsorted = 'fill: rgb(166, 67, 67)'
   sorted = 'fill: cadetblue'
   functionIsRunning = false
   speed: number
   constructor(){
+    this.svgHeight = this.maxValue + 10
+    this.createBars()
+    // this.svgWidth = this.barWidth * this.howManyBars + 2
+    this.speed = 90
+  }
+
+  createBars(): void {
+    this.bars = []
+    this.barWidth = 500/this.howManyBars
     // creating bars with random heights
     for(let i=1; i<=this.howManyBars; i++){
       const value: number = Math.floor(Math.random() * this.maxValue + 1)
       const bar = new Bars(value, (i - 1)*this.barWidth+1, this.barWidth, this.unsorted )
       this.bars.push(bar)
     }
-    this.svgHeight = this.maxValue + 10
-    this.svgWidth = this.barWidth * this.howManyBars + 2
-    this.speed = 90
   }
-
-  createNewBars(): void {
-    this.bars.forEach(it => {
-      it.value = Math.floor(Math.random() * this.maxValue + 1)
-      it.style = this.unsorted
-    })
+  howManyBarsChanged(newValue, oldValue){
+    this.createBars()
   }
 
   async bubbleSort(): Promise<void> {

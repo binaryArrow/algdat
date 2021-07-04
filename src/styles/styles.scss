@@ -53,6 +53,7 @@ svg rect{
 .btn-reset{
   background-color: silver;
   color: black;
+  margin-left: 10px;
 }
 .btn-reset:hover, .btn-reset:active, .btn-reset:visited, .btn-reset:focus{
   background-color: lightgrey;
@@ -62,9 +63,22 @@ svg rect{
 .slider-container{
   text-align: center;
   margin-top: 2rem;
-
+  display: flex;
+  flex-flow: wrap;
+  flex-direction: row;
+  justify-content: center;
+  align-items: baseline;
 }
-.slider{
+.space{
+  width: 100%;
+}
+.speed-label{
+  grid-column-start: 2;
+  grid-column-end: 2;
+  text-align: right;
+  margin-right: 10px;
+}
+.speed-slider{
   -webkit-appearance: none;
   appearance: none;
   width: 120px;
@@ -73,16 +87,34 @@ svg rect{
   opacity: 0.7;
   transition: opacity .2s;
 }
-
-.slider:hover{
+.speed-slider:hover{
   opacity: 1;
 }
-
-.slider::-webkit-slider-thumb {
+.speed-slider::-webkit-slider-thumb {
   -webkit-appearance: none;
   appearance: none;
   width: 20px;
   height: 18px;
   background-color: cadetblue;
 }
+.bar-slider{
+  -webkit-appearance: none;
+  appearance: none;
+  width: 120px;
+  height: 20px;
+  background: #d3d3d3;
+  opacity: 0.7;
+  transition: opacity .2s;
+}
+.bar-slider:hover{
+  opacity: 1;
+}
+.bar-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 18px;
+  background-color: cadetblue;
+}
+
 
