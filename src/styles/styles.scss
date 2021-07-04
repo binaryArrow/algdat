@@ -105,6 +105,7 @@ svg rect{
   background: #d3d3d3;
   opacity: 0.7;
   transition: opacity .2s;
+  margin-left: 26px;
 }
 .bar-slider:hover{
   opacity: 1;
@@ -115,6 +116,11 @@ svg rect{
   width: 20px;
   height: 18px;
   background-color: cadetblue;
+}
+.bar-label{
+  grid-column-start: 2;
+  grid-column-end: 2;
+  text-align: right;
 }
 
 

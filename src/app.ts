@@ -1,23 +1,21 @@
 import {Bars} from "./bars";
 import { observable } from 'aurelia-framework';
-import {bindable, bindingMode} from 'aurelia-framework';
 
 export class App {
   bars: Bars[] = []
-  svgWidth: number
   svgHeight: number
   barWidth // barwidth is relational to howManyBars
-  maxValue = 600
-  @observable howManyBars = 10
+  maxValue = 600 // max height of bars
+  @observable howManyBars = 10 // using standard convention with the function called has the name with 'changed' in the end EG: howManyBarsChanged()
   unsorted = 'fill: rgb(166, 67, 67)'
   sorted = 'fill: cadetblue'
   functionIsRunning = false
   speed: number
+
   constructor(){
     this.svgHeight = this.maxValue + 10
     this.createBars()
     // this.svgWidth = this.barWidth * this.howManyBars + 2
-    this.speed = 90
   }
 
   createBars(): void {
@@ -30,9 +28,18 @@ export class App {
       this.bars.push(bar)
     }
   }
-  howManyBarsChanged(newValue, oldValue){
+
+  howManyBarsChanged(): void{
     this.createBars()
   }
+  speedReset(): void{
+    this.speed = 90
+  }
+  barReset(): void{
+    this.howManyBars = 10
+  }
+
+  // ALGORITHMS------------------------------------------------------------------
 
   async bubbleSort(): Promise<void> {
     this.functionIsRunning = true
@@ -52,10 +59,6 @@ export class App {
       this.bars[this.bars.length - 1 - i].style = this.sorted
     }
     this.functionIsRunning = false
-  }
-
-  reset(){
-    this.speed = 90
   }
 
   // TODO: center the bar field.implement insertion-sort

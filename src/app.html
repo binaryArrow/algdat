@@ -14,10 +14,11 @@
   <div class="slider-container">
     <label class="speed-label">Speed: ${speed}ms</label>
     <input class="speed-slider" type="range" min="1" max="200" value.bind="speed">
-    <button click.delegate="reset()" class="btn btn-reset">RESET</button>
+    <button click.delegate="speedReset()" class="btn btn-reset">RESET</button>
     <div class="space"></div>
-    <input class="bar-slider" type="range" min="3" max="100" value.bind="howManyBars" >
-
+    <label class="bar-label">Bars: ${howManyBars}</label>
+    <input class="bar-slider" type="range" min="3" max="100" value.bind="howManyBars" disabled.bind="functionIsRunning">
+    <button click.delegate="barReset()" class="btn btn-reset">RESET</button>
   </div>
 
 </template>
