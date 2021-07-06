@@ -10,6 +10,7 @@
   <div class="button-container">
     <button type="button" class="btn btn-new-values" click.delegate="createBars()" disabled.bind="functionIsRunning">new Values</button>
     <button type="button" class="btn btn-bubble-sort" click.delegate="bubbleSort()" disabled.bind="functionIsRunning">Bubble-sort</button>
+    <button type="button" class="btn btn-insertion-sort" click.delegate="insertionSort()" disabled.bind="functionIsRunning">insertion-sort</button>
   </div>
   <div class="slider-container">
     <label class="speed-label">Speed: ${speed}ms</label>
@@ -18,7 +19,7 @@
     <div class="space"></div>
     <label class="bar-label">Bars: ${howManyBars}</label>
     <input class="bar-slider" type="range" min="3" max="100" value.bind="howManyBars" disabled.bind="functionIsRunning">
-    <button click.delegate="barReset()" class="btn btn-reset">RESET</button>
+    <button click.delegate="barReset()" class="btn btn-reset" disabled.bind="functionIsRunning">RESET</button>
   </div>
 
 </template>

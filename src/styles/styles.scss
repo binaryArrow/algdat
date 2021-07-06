@@ -49,6 +49,14 @@ svg rect{
   border-color: rgb(79, 141, 141);
   color: white;
 }
+.btn-insertion-sort {
+  background-color: rgb(153, 102, 153);
+}
+.btn-insertion-sort:hover, .btn-insertion-sort:active, .btn-insertion-sort:visited, .btn-insertion-sort:focus{
+  background-color: rgb(113, 92, 143);;
+  border-color: rgb(153, 102, 153);;
+  color: white;
+}
 
 .btn-reset{
   background-color: silver;
